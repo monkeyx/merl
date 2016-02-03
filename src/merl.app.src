@@ -1,0 +1,21 @@
+{application, merl, [
+  {description, "Merl - A MUD in Erlang"},
+  {vsn, "0.1.0"},
+  {modules, []},
+  {registered, []},
+  {applications, [
+      kernel,
+      stdlib,
+      ranch,
+      lager
+  ]},
+  {mod, {merl_app, []}},
+  {env, [{lager, [
+    {log_root, "log"},
+    {handlers, [
+      {lager_console_backend, info},
+      {lager_file_backend, [{file, "error.log"}, {level, error}]},
+      {lager_file_backend, [{file, "console.log"}, {level, info}]}
+    ]}
+  ]}]}
+]}.
